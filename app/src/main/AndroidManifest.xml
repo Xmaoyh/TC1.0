@@ -20,8 +20,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".controllers.activity.MainActivity"
-            >
+            android:name=".controllers.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
@@ -38,11 +42,7 @@
         <activity android:name=".controllers.activity.DriverEditActivity" />
         <activity android:name=".controllers.activity.MyInfoActivity" />
         <activity android:name=".controllers.activity.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

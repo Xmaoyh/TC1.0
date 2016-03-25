@@ -5,6 +5,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -48,6 +54,10 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
     EditText mEditAddress;
     @Bind(R.id.edit_phone)
     EditText mEditPhone;
+    @Bind(R.id.imagev_turn_back)
+    ImageView mImagevTurnBack;
+    @Bind(R.id.iv_my_icon)
+    ImageView mIvMyIcon;
 
 
     /**
@@ -57,11 +67,14 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
     private Bitmap mPhotoImage;
     private static final int TAKE_PHOTO_FRONT = 1;
     private static final int TAKE_PHOTO_BACK = 3;
+    private static final int TAKE_PHOTO_ICON = 5;
     private static final int GET_PHOTO_FRONT = 2;
     private static final int GET_PHOTO_BCAK = 4;
+    private static final int GET_PHOTO_ICON = 6;
     private File filePath = new File(Environment.getExternalStorageDirectory() + "/Tangcan");
     private File outputImageFront = new File(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage1.jpg");
     private File outputImageBack = new File(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage2.jpg");
+    private File outputImageIcon = new File(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg");
 
     /**
      * 需要传递参数时有利于解耦
@@ -74,13 +87,13 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_myinfo, null);
         ButterKnife.bind(this, v);
         mImagevFront.setOnClickListener(this);
         mImagevBack.setOnClickListener(this);
+        mIvMyIcon.setOnClickListener(this);
         if (!filePath.exists()) {
             filePath.mkdirs();
         }
@@ -90,6 +103,9 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
         }
         if (outputImageBack.exists()) {
             mImagevBack.setImageBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage2.jpg"));
+        }
+        if (outputImageIcon.exists()) {
+            mIvMyIcon.setImageBitmap( toRoundBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg")));
         }
         return v;
 
@@ -150,6 +166,21 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriBack);
                         Log.e("uri", imageUriBack.toString());
                         startActivityForResult(intent, TAKE_PHOTO_BACK);
+                        break;
+                    case R.id.iv_my_icon:
+                        if (outputImageIcon.exists()) {
+                            outputImageIcon.delete();
+                            try {
+                                outputImageIcon.createNewFile();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        Uri imageUriIcon = Uri.fromFile(outputImageIcon);
+                        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriIcon);
+                        Log.e("uri", imageUriIcon.toString());
+                        startActivityForResult(intent, TAKE_PHOTO_ICON);
+                        break;
                 }
 
             }
@@ -165,6 +196,10 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
                         break;
                     case R.id.imagev_back:
                         startActivityForResult(intent2, GET_PHOTO_BCAK);
+                        break;
+                    case R.id.iv_my_icon:
+                        startActivityForResult(intent2, GET_PHOTO_ICON);
+                        break;
 
                 }
 
@@ -266,6 +301,50 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
             Log.e("图片路径", Environment.getExternalStorageDirectory().toString());
             mImagevBack.setImageBitmap(mPhotoImage);
         }
+
+        if (requestCode == TAKE_PHOTO_ICON && resultCode == Activity.RESULT_OK) {
+            // Bundle bundle = data.getExtras();
+            //Bitmap bitmap = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 2; // 直接设置它的压缩率，表示1/2
+            Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg", options);
+            mIvMyIcon.setImageBitmap( toRoundBitmap(bitmap));        // 将图片显示在ImageView里
+        }
+
+        if (requestCode == GET_PHOTO_ICON && resultCode == Activity.RESULT_OK) {
+            Uri uri = data.getData();
+            // cursor游标
+            Cursor cursor = getActivity().getContentResolver().query(uri, null, null,
+                    null, null);
+            cursor.moveToFirst();
+            int idx = cursor
+                    .getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+            mCurrentPhotoStr = cursor.getString(idx);
+            cursor.close();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 2; // 直接设置它的压缩率，表示1/2
+            mPhotoImage = BitmapFactory.decodeFile(mCurrentPhotoStr, options);
+            if (outputImageIcon.exists()) {
+                outputImageIcon.delete();
+                try {
+                    outputImageIcon.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                FileOutputStream out = new FileOutputStream(outputImageIcon);
+                mPhotoImage.compress(Bitmap.CompressFormat.PNG, 100, out);
+                out.flush();
+                out.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Log.e("图片路径", Environment.getExternalStorageDirectory().toString());
+            mIvMyIcon.setImageBitmap(  toRoundBitmap(mPhotoImage));
+        }
     }
 
     @OnClick(R.id.imagev_turn_back)
@@ -278,5 +357,37 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
         mEditName.setEnabled(true);
         mEditName.setText(mEditName.getText().toString());
     }
-
+    public Bitmap toRoundBitmap(Bitmap bitmap) {
+        //圆形图片宽高
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        //正方形的边长
+        int r = 0;
+        //取最短边做边长
+        if(width > height) {
+            r = height;
+        } else {
+            r = width;
+        }
+        //构建一个bitmap
+        Bitmap backgroundBmp = Bitmap.createBitmap(width,
+                height, Bitmap.Config.ARGB_8888);
+        //new一个Canvas，在backgroundBmp上画图
+        Canvas canvas = new Canvas(backgroundBmp);
+        Paint paint = new Paint();
+        //设置边缘光滑，去掉锯齿
+        paint.setAntiAlias(true);
+        //宽高相等，即正方形
+        RectF rect = new RectF(0, 0, r, r);
+        //通过制定的rect画一个圆角矩形，当圆角X轴方向的半径等于Y轴方向的半径时，
+        //且都等于r/2时，画出来的圆角矩形就是圆形
+        canvas.drawRoundRect(rect, r/2, r/2, paint);
+        //设置当两个图形相交时的模式，SRC_IN为取SRC图形相交的部分，多余的将被去掉
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        //canvas将bitmap画在backgroundBmp上
+        canvas.drawBitmap(bitmap, null, rect, paint);
+        //返回已经绘画好的backgroundBmp
+        return backgroundBmp;
     }
+
+}

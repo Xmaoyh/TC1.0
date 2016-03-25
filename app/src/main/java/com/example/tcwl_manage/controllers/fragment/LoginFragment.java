@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,8 +104,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void login() {
-        String  phoneNum  = mEditPhoneNum.getText().toString();
-        String password = mEditPassword.getText().toString();
+        String  phoneNum  = mEditPhoneNum.getText().toString().trim();
+        String  password = mEditPassword.getText().toString().trim();
         //参数检查
         if(TextUtils.isEmpty(phoneNum)) {
             ToastUtil.toast(getMyActivity(), this.getResources().getString(R.string.input_phone_num));
@@ -123,7 +124,7 @@ public class LoginFragment extends Fragment {
         //请求api
         RetrofitUtil mRetrofitUtil = new RetrofitUtil();
         ApiLoginService apiLoginService= mRetrofitUtil.create(ApiLoginService.class);
-        Observable<Login> observable = apiLoginService.getLogin("null",1,password,Integer.valueOf(phoneNum));
+        Observable<Login> observable = apiLoginService.getLogin("null",1,password, Long.parseLong(phoneNum));
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Login>() {
@@ -134,7 +135,7 @@ public class LoginFragment extends Fragment {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        ToastUtil.toast(getMyActivity(),"网络错误");
                     }
 
                     @Override

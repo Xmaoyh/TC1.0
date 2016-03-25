@@ -14,5 +14,5 @@ public interface ApiLoginService {
     Observable<Login> getLogin (@Query("registrationId") String registrationId,
                                 @Query("appType") int appType,
                                 @Query("password") String password,
-                                @Query("mobileNo")int mobileNo);
+                                @Query("mobileNo")long mobileNo);
 }
