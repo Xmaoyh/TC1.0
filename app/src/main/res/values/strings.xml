@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">tc-andr-manage</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_staff_edit">StaffEditActivity</string>
+    <string name="login">登入</string>
+    <string name="mission">任务</string>
+    <string name="bill">开单</string>
+    <string name="pickupgoods">待接送货</string>
+    <string name="order">待接单</string>
+    <string name="logistics">物流追踪</string>
+    <string name="storageAndStowage">库存与配载</string>
+    <string name="inputPhoneNum">请输入手机号</string>
+    <string name="inputPSW">请输入密码</string>
+    <string name="forgetPSW">忘记密码?</string>
+    <string name="register">注册</string>
+    <string name="my">我的</string>
+    <string name="logout">退出登入</string>
+    <string name="aboutTC">关于通灿物流宝</string>
+</resources>
