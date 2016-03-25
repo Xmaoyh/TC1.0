@@ -77,7 +77,7 @@
                     android:paddingBottom="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pickupgoods"
+                    android:text="@string/pickup_goods"
                     android:textColor="@color/black_popwintext"
                     android:textSize="@dimen/top_text_20sp" />
             </LinearLayout>
@@ -182,7 +182,7 @@
                     android:paddingBottom="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/storageAndStowage"
+                    android:text="@string/storage_and_stowage"
                     android:textColor="@color/black_popwintext"
                     android:textSize="@dimen/top_text_20sp" />
             </LinearLayout>

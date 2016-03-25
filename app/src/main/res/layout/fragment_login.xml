@@ -39,7 +39,7 @@
             android:id="@+id/edit_phoneNum"
             android:paddingLeft="@dimen/margin_10dp"
             android:background="@null"
-            android:hint="@string/inputPhoneNum"
+            android:hint="@string/input_phone_num"
             android:layout_width="350dp"
             android:layout_height="45dp"/>
 
@@ -63,7 +63,7 @@
             android:inputType="textPassword"
             android:paddingLeft="@dimen/margin_10dp"
             android:background="@null"
-            android:hint="@string/inputPSW"
+            android:hint="@string/input_password"
             android:layout_width="350dp"
             android:layout_height="45dp"/>
 
@@ -78,7 +78,7 @@
             android:paddingLeft="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/forgetPSW"
+            android:text="@string/forget_password"
             android:textSize="@dimen/top_text_20sp"
             android:textColor="@color/login_register"
             />
