@@ -343,7 +343,7 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
                 e.printStackTrace();
             }
             Log.e("图片路径", Environment.getExternalStorageDirectory().toString());
-            mIvMyIcon.setImageBitmap(  toRoundBitmap(mPhotoImage));
+            mIvMyIcon.setImageBitmap( toRoundBitmap(mPhotoImage));
         }
     }
 
