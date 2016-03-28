@@ -100,7 +100,10 @@ public class LoginFragment extends Fragment {
                 startActivity(intent2);
                 break;
             case R.id.btn_login:
-             login();
+                Intent intent3 = new Intent(getMyActivity(), MainActivity.class);
+                startActivity(intent3);
+                getMyActivity().finish();
+             //login();
         }
     }
 
@@ -155,8 +158,7 @@ public class LoginFragment extends Fragment {
                             ToastUtil.toast(getMyActivity(),getMyActivity().getResources().getString(R.string.wrong_password));
                             return;
                         }
-                       // if(code == CODE_SUCCESS )
-                        if(code == 16385 )
+                        if(code == CODE_SUCCESS )
                         {
                             Intent intent = new Intent(getMyActivity(), MainActivity.class);
                             startActivity(intent);
