@@ -11,7 +11,7 @@
         <ImageView
             android:paddingLeft="10dp"
             android:id="@+id/imagev_turn_back"
-            android:src="@mipmap/nextstep"
+            android:src="@mipmap/back"
             android:layout_width="wrap_content"
             android:layout_height="40dp" />
         <LinearLayout
@@ -31,14 +31,14 @@
     </LinearLayout>
 
     <LinearLayout
-       android:gravity="center"
+       android:gravity="center_horizontal"
         android:background="@color/basic_background_color"
         android:layout_width="match_parent"
         android:layout_height="120dp">
         <ImageView
             android:id="@+id/iv_my_icon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:src="@mipmap/my_icon_big"
             />
 
@@ -51,7 +51,7 @@
     <TextView
         android:layout_gravity="center_vertical"
         style="@style/myinfo_text_style"
-        android:text="身份证验证"
+        android:text="@string/verify_idcard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
         <LinearLayout
@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="身份证正面照"
+                android:text="@string/idcard_front"
                 style="@style/myinfo_text_style" />
         </LinearLayout>
         <LinearLayout
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="身份证反面照"
+                android:text="@string/idcard_back"
                 style="@style/myinfo_text_style" />
         </LinearLayout>
     </LinearLayout>
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/myinfo_text_style"
-            android:text="姓名"
+            android:text="@string/name"
             />
         <LinearLayout
             android:layout_gravity="center_vertical"
@@ -128,8 +128,7 @@
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:hint="尊姓大名"
+            android:hint="@string/input_your_name"
             style="@style/myinfo_text_style"
 
             />
@@ -146,7 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/myinfo_text_style"
-            android:text="身份证号码"
+            android:text="@string/idcard_num"
             />
         <LinearLayout
             android:layout_gravity="center_vertical"
@@ -159,8 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:enabled="false"
-                android:hint="填写身份证号码"
+                android:hint="@string/input_idcard"
                 style="@style/myinfo_text_style"
                 />
         </LinearLayout>
@@ -176,7 +174,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/myinfo_text_style"
-            android:text="住址"
+            android:text="@string/address"
             />
         <LinearLayout
             android:layout_gravity="center_vertical"
@@ -189,8 +187,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:enabled="false"
-                android:hint="填写地址"
+                android:hint="@string/input_address"
                 style="@style/myinfo_text_style"
                 />
         </LinearLayout>
@@ -206,7 +203,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/myinfo_text_style"
-            android:text="手机号码"
+            android:text="@string/phone"
             />
         <LinearLayout
             android:layout_gravity="center_vertical"
@@ -219,8 +216,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:enabled="false"
-                android:hint="填写身份证号码"
+                android:hint="@string/input_phone_num"
                 style="@style/myinfo_text_style"
                 />
         </LinearLayout>
@@ -236,7 +232,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/myinfo_text_style"
-            android:text="所属网点"
+            android:text="@string/branch"
             />
         <LinearLayout
             android:layout_gravity="center_vertical"
@@ -250,7 +246,7 @@
                 android:layout_height="wrap_content"
                 style="@style/myinfo_text_style"
                 android:textColor="#969696"
-                android:text="网点A"
+                android:text="@string/branch_a"
                 />
         </LinearLayout>
     </LinearLayout>
@@ -263,7 +259,7 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_button_myinfo"
-            android:text="修改手机号码"
+            android:text="@string/modify_phone"
             android:textColor="#ffffff"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
@@ -273,7 +269,7 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_button_myinfo"
-            android:text="重置密码"
+            android:text="@string/reset_psw"
             android:textColor="#ffffff"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"

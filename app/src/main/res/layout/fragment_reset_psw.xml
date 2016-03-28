@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@mipmap/longin_background"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:src="@mipmap/back"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:text="@string/find_psw"
+            android:textColor="@color/white"
+            android:textSize="@dimen/top_text_20sp"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/edit_input_length"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:background="@drawable/shape_login_input"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/margin_edit_image"
+            android:src="@mipmap/phonenum"
+            />
+
+        <EditText
+            android:id="@+id/edit_phone"
+            android:layout_width="@dimen/edit_input_length"
+            android:layout_height="45dp"
+            android:background="@null"
+            android:hint="@string/input_phone_num"
+            android:paddingLeft="@dimen/margin_10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/edit_input_length"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="170dp"
+            android:layout_height="45dp"
+            android:background="@drawable/shape_login_input"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/margin_edit_image"
+                android:src="@mipmap/verify_code"
+                />
+
+            <EditText
+                android:id="@+id/edit_verify_code"
+                android:layout_width="350dp"
+                android:layout_height="45dp"
+                android:background="@null"
+                android:hint="@string/input_verify_code"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_get_verify_code"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/shape_button_myinfo"
+            android:text="@string/get_verify_code"
+            android:textColor="@color/white"
+            android:textSize="@dimen/top_text_20sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/edit_input_length"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:background="@drawable/shape_login_input"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/margin_edit_image"
+            android:src="@mipmap/password"
+            />
+
+        <EditText
+            android:id="@+id/edit_password"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:background="@null"
+            android:hint="@string/input_password"
+            android:inputType="textPassword"
+            android:paddingLeft="@dimen/margin_10dp"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_psw"
+        android:layout_width="@dimen/edit_input_length"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/shape_button_myinfo"
+        android:text="@string/reset_psw"
+        android:textColor="@color/white"
+        android:textSize="@dimen/top_text_20sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:text="@string/remember_psw"
+        android:textColor="@color/login_register"
+        android:textSize="@dimen/top_text_20sp"
+        />
+
+
+</LinearLayout>

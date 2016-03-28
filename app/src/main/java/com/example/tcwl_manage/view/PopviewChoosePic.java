@@ -64,8 +64,6 @@ public class PopviewChoosePic extends PopupWindow implements View.OnClickListene
         //this.setAnimationStyle(R.style.AnimBottom);
         //实例化一个ColorDrawable颜色为半透明
         ColorDrawable dw = new ColorDrawable(0x000000);
-        //设置PopupWindow点击外部消失
-        this.setOutsideTouchable(true);
         //设置PopupWindow弹出窗体的背景
         this.setBackgroundDrawable(dw);
         this.setAnimationStyle(R.style.popwin_anim_style);

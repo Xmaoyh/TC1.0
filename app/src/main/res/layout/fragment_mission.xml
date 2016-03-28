@@ -6,9 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-
-        >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/top"
@@ -39,11 +37,11 @@
                 android:src="@mipmap/mission_kaidan" />
 
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/IV_kaidan"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
                 android:text="@string/bill"
                 android:textColor="@color/white"
                 android:textSize="@dimen/top_text_20sp" />
@@ -57,9 +55,9 @@
             >
 
             <LinearLayout
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -73,10 +71,10 @@
                     android:src="@mipmap/misson_pickupgoos" />
 
                 <TextView
-                    android:paddingTop="15dp"
-                    android:paddingBottom="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="15dp"
                     android:text="@string/pickup_goods"
                     android:textColor="@color/black_popwintext"
                     android:textSize="@dimen/top_text_20sp" />
@@ -89,9 +87,9 @@
                 android:background="#ADADAD" />
 
             <LinearLayout
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -105,13 +103,18 @@
                     android:src="@mipmap/mission_order" />
 
                 <TextView
-                    android:paddingTop="15dp"
-                    android:paddingBottom="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/order"
-                    android:textColor="@color/black_popwintext"
-                    android:textSize="@dimen/top_text_20sp" />
+                    android:layout_below="@+id/iv_jiedan"
+                    android:layout_centerHorizontal="true"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="15dp"
+                    android:text="@string/ordering"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+                android:text="@string/order"
+                android:textColor="@color/black_popwintext"
+                android:textSize="@dimen/top_text_20sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -130,9 +133,9 @@
             >
 
             <LinearLayout
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -146,10 +149,10 @@
                     android:src="@mipmap/mission_logistics" />
 
                 <TextView
-                    android:paddingTop="15dp"
-                    android:paddingBottom="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="15dp"
                     android:text="@string/logistics"
                     android:textColor="@color/black_popwintext"
                     android:textSize="@dimen/top_text_20sp" />
@@ -162,9 +165,9 @@
                 android:background="#ADADAD" />
 
             <LinearLayout
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -178,10 +181,10 @@
                     android:src="@mipmap/mission_storage" />
 
                 <TextView
-                    android:paddingTop="15dp"
-                    android:paddingBottom="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="15dp"
                     android:text="@string/storage_and_stowage"
                     android:textColor="@color/black_popwintext"
                     android:textSize="@dimen/top_text_20sp" />

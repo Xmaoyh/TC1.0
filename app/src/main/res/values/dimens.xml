@@ -7,4 +7,6 @@
     <dimen name="top_text_20sp">20sp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_edit_image">20dp</dimen>
+    <dimen name="edit_input_length">320dp</dimen>
 </resources>

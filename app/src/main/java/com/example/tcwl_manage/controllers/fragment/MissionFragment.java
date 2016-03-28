@@ -1,6 +1,7 @@
 package com.example.tcwl_manage.controllers.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,16 +11,18 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.tcwl_manage.R;
+import com.example.tcwl_manage.controllers.activity.OrderActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
  * Created by MAOYH on 2016/3/24.
  * 任务
  */
-public class MissionFragment extends Fragment {
+public class MissionFragment extends Fragment{
     private static View v = null;
     @Bind(R.id.top)
     RelativeLayout mTop;
@@ -58,4 +61,12 @@ public class MissionFragment extends Fragment {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
+    @OnClick(R.id.iv_jiedan)
+    public void setmIvJiedan(){
+
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), OrderActivity.class);
+        startActivity(intent);
+    }
+
 }

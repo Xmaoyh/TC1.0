@@ -7,17 +7,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tcwl_manage.R;
 import com.example.tcwl_manage.controllers.activity.MainActivity;
+import com.example.tcwl_manage.controllers.activity.RegisterActivity;
+import com.example.tcwl_manage.controllers.activity.ResetPWActivity;
 import com.example.tcwl_manage.models.enties.Login;
 import com.example.tcwl_manage.models.services.ApiLoginService;
 import com.example.tcwl_manage.utils.RetrofitUtil;
@@ -44,12 +44,9 @@ public class LoginFragment extends Fragment {
     private static  int CODE_USER_DISABLE = 20208;
     private static  int CODE_WRONG_PASSWORD = 60001;
 
-    @Bind(R.id.imagev_phone)
-    ImageView mImagevPhone;
+
     @Bind(R.id.edit_phoneNum)
     EditText mEditPhoneNum;
-    @Bind(R.id.imagev_password)
-    ImageView mImagevPassword;
     @Bind(R.id.edit_password)
     EditText mEditPassword;
     @Bind(R.id.tv_forget_psw)
@@ -95,8 +92,12 @@ public class LoginFragment extends Fragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_forget_psw:
+                Intent intent = new Intent(getMyActivity(), ResetPWActivity.class);
+                startActivity(intent);
                 break;
             case R.id.tv_register:
+                Intent intent2 = new Intent(getMyActivity(), RegisterActivity.class);
+                startActivity(intent2);
                 break;
             case R.id.btn_login:
              login();
@@ -104,8 +105,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void login() {
-        String  phoneNum  = mEditPhoneNum.getText().toString().trim();
-        String  password = mEditPassword.getText().toString().trim();
+        String  phoneNum  = mEditPhoneNum.getText().toString();
+        String password = mEditPassword.getText().toString();
         //参数检查
         if(TextUtils.isEmpty(phoneNum)) {
             ToastUtil.toast(getMyActivity(), this.getResources().getString(R.string.input_phone_num));
@@ -124,7 +125,7 @@ public class LoginFragment extends Fragment {
         //请求api
         RetrofitUtil mRetrofitUtil = new RetrofitUtil();
         ApiLoginService apiLoginService= mRetrofitUtil.create(ApiLoginService.class);
-        Observable<Login> observable = apiLoginService.getLogin("null",1,password, Long.parseLong(phoneNum));
+        Observable<Login> observable = apiLoginService.getLogin("null",1,password,Long.valueOf(phoneNum));
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Login>() {
@@ -135,7 +136,8 @@ public class LoginFragment extends Fragment {
 
                     @Override
                     public void onError(Throwable e) {
-                        ToastUtil.toast(getMyActivity(),"网络错误");
+                        ToastUtil.toast(getMyActivity(),getMyActivity().getResources().getString(R.string.network_error));
+
                     }
 
                     @Override
@@ -153,9 +155,14 @@ public class LoginFragment extends Fragment {
                             ToastUtil.toast(getMyActivity(),getMyActivity().getResources().getString(R.string.wrong_password));
                             return;
                         }
-                        if(code == CODE_SUCCESS ){
+                       // if(code == CODE_SUCCESS )
+                        if(code == 16385 )
+                        {
                             Intent intent = new Intent(getMyActivity(), MainActivity.class);
                             startActivity(intent);
+                        }else{
+                            ToastUtil.toast(getMyActivity(),getMyActivity().getResources().getString(R.string.server_error));
+                            return;
                         }
                     }
                 });

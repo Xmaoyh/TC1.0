@@ -5,12 +5,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -25,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.tcwl_manage.R;
+import com.example.tcwl_manage.utils.GetCircleImage;
 import com.example.tcwl_manage.view.PopviewChoosePic;
 
 import java.io.File;
@@ -65,6 +60,7 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
      **/
     private String mCurrentPhotoStr;
     private Bitmap mPhotoImage;
+    private  BitmapFactory.Options options = new BitmapFactory.Options();
     private static final int TAKE_PHOTO_FRONT = 1;
     private static final int TAKE_PHOTO_BACK = 3;
     private static final int TAKE_PHOTO_ICON = 5;
@@ -75,7 +71,6 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
     private File outputImageFront = new File(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage1.jpg");
     private File outputImageBack = new File(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage2.jpg");
     private File outputImageIcon = new File(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg");
-
     /**
      * 需要传递参数时有利于解耦
      */
@@ -94,6 +89,7 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
         mImagevFront.setOnClickListener(this);
         mImagevBack.setOnClickListener(this);
         mIvMyIcon.setOnClickListener(this);
+        options.inSampleSize = 8;// 直接设置它的压缩率
         if (!filePath.exists()) {
             filePath.mkdirs();
         }
@@ -105,7 +101,7 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
             mImagevBack.setImageBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage2.jpg"));
         }
         if (outputImageIcon.exists()) {
-            mIvMyIcon.setImageBitmap( toRoundBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg")));
+            mIvMyIcon.setImageBitmap( GetCircleImage.toRoundBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg",options)));
         }
         return v;
 
@@ -196,7 +192,6 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
                         break;
                     case R.id.imagev_back:
                         startActivityForResult(intent2, GET_PHOTO_BCAK);
-                        break;
                     case R.id.iv_my_icon:
                         startActivityForResult(intent2, GET_PHOTO_ICON);
                         break;
@@ -220,8 +215,6 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
         if (requestCode == TAKE_PHOTO_FRONT && resultCode == Activity.RESULT_OK) {
             // Bundle bundle = data.getExtras();
             //Bitmap bitmap = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 2; // 直接设置它的压缩率，表示1/2
             Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage1.jpg", options);
             mImagevFront.setImageBitmap(bitmap);        // 将图片显示在ImageView里
         }
@@ -235,8 +228,6 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
                     .getColumnIndex(MediaStore.Images.ImageColumns.DATA);
             mCurrentPhotoStr = cursor.getString(idx);
             cursor.close();
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 2; // 直接设置它的压缩率，表示1/2
             mPhotoImage = BitmapFactory.decodeFile(mCurrentPhotoStr, options);
             if (outputImageFront.exists()) {
                 outputImageFront.delete();
@@ -262,8 +253,6 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
         if (requestCode == TAKE_PHOTO_BACK && resultCode == Activity.RESULT_OK) {
             // Bundle bundle = data.getExtras();
             //Bitmap bitmap = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 3; // 直接设置它的压缩率，表示1/2
             Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage2.jpg", options);
             mImagevBack.setImageBitmap(bitmap);        // 将图片显示在ImageView里
         }
@@ -277,8 +266,6 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
                     .getColumnIndex(MediaStore.Images.ImageColumns.DATA);
             mCurrentPhotoStr = cursor.getString(idx);
             cursor.close();
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 2; // 直接设置它的压缩率，表示1/2
             mPhotoImage = BitmapFactory.decodeFile(mCurrentPhotoStr, options);
             if (outputImageBack.exists()) {
                 outputImageBack.delete();
@@ -305,10 +292,8 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
         if (requestCode == TAKE_PHOTO_ICON && resultCode == Activity.RESULT_OK) {
             // Bundle bundle = data.getExtras();
             //Bitmap bitmap = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 2; // 直接设置它的压缩率，表示1/2
             Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg", options);
-            mIvMyIcon.setImageBitmap( toRoundBitmap(bitmap));        // 将图片显示在ImageView里
+            mIvMyIcon.setImageBitmap( GetCircleImage.toRoundBitmap(bitmap));        // 将图片显示在ImageView里
         }
 
         if (requestCode == GET_PHOTO_ICON && resultCode == Activity.RESULT_OK) {
@@ -321,8 +306,6 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
                     .getColumnIndex(MediaStore.Images.ImageColumns.DATA);
             mCurrentPhotoStr = cursor.getString(idx);
             cursor.close();
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 2; // 直接设置它的压缩率，表示1/2
             mPhotoImage = BitmapFactory.decodeFile(mCurrentPhotoStr, options);
             if (outputImageIcon.exists()) {
                 outputImageIcon.delete();
@@ -343,7 +326,7 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
                 e.printStackTrace();
             }
             Log.e("图片路径", Environment.getExternalStorageDirectory().toString());
-            mIvMyIcon.setImageBitmap( toRoundBitmap(mPhotoImage));
+            mIvMyIcon.setImageBitmap(GetCircleImage.toRoundBitmap(mPhotoImage));
         }
     }
 
@@ -354,40 +337,7 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
 
     @OnClick(R.id.imagev_commit)
     public void commitClick() {
-        mEditName.setEnabled(true);
-        mEditName.setText(mEditName.getText().toString());
-    }
-    public Bitmap toRoundBitmap(Bitmap bitmap) {
-        //圆形图片宽高
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        //正方形的边长
-        int r = 0;
-        //取最短边做边长
-        if(width > height) {
-            r = height;
-        } else {
-            r = width;
-        }
-        //构建一个bitmap
-        Bitmap backgroundBmp = Bitmap.createBitmap(width,
-                height, Bitmap.Config.ARGB_8888);
-        //new一个Canvas，在backgroundBmp上画图
-        Canvas canvas = new Canvas(backgroundBmp);
-        Paint paint = new Paint();
-        //设置边缘光滑，去掉锯齿
-        paint.setAntiAlias(true);
-        //宽高相等，即正方形
-        RectF rect = new RectF(0, 0, r, r);
-        //通过制定的rect画一个圆角矩形，当圆角X轴方向的半径等于Y轴方向的半径时，
-        //且都等于r/2时，画出来的圆角矩形就是圆形
-        canvas.drawRoundRect(rect, r/2, r/2, paint);
-        //设置当两个图形相交时的模式，SRC_IN为取SRC图形相交的部分，多余的将被去掉
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        //canvas将bitmap画在backgroundBmp上
-        canvas.drawBitmap(bitmap, null, rect, paint);
-        //返回已经绘画好的backgroundBmp
-        return backgroundBmp;
+     //todo 上传信息;
     }
 
 }
