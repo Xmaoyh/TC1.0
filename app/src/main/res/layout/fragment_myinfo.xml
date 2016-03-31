@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/gray"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray"
+              android:orientation="vertical"
     >
+
     <LinearLayout
-        android:background="@color/basic_background_color"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/top_length"
+        android:background="@color/basic_background_color">
+
         <ImageView
-            android:paddingLeft="10dp"
             android:id="@+id/imagev_turn_back"
-            android:src="@mipmap/back"
             android:layout_width="wrap_content"
-            android:layout_height="40dp" />
+            android:layout_height="40dp"
+            android:paddingLeft="10dp"
+            android:src="@mipmap/back"/>
+
         <LinearLayout
-            android:gravity="right"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="right">
 
             <ImageView
-                android:paddingRight="10dp"
                 android:id="@+id/imagev_commit"
-                android:src="@mipmap/my_check"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:paddingRight="10dp"
+                android:src="@mipmap/my_check"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-       android:gravity="center_horizontal"
-        android:background="@color/basic_background_color"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="100dp"
+        android:background="@color/basic_background_color"
+        android:gravity="center_horizontal">
+
         <ImageView
             android:id="@+id/iv_my_icon"
             android:layout_width="wrap_content"
@@ -43,21 +48,25 @@
             />
 
     </LinearLayout>
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
-    <TextView
-        android:layout_gravity="center_vertical"
-        style="@style/myinfo_text_style"
-        android:text="@string/verify_idcard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/myinfo_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/verify_idcard"/>
+
         <LinearLayout
-            android:layout_marginLeft="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -68,20 +77,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="120dp"
                 android:layout_weight="1"
-                android:scaleType = "fitXY"
-                android:src="@mipmap/my_idcard_front" />
+                android:scaleType="fitXY"
+                android:src="@mipmap/my_idcard_front"/>
 
             <TextView
+                style="@style/myinfo_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="@string/idcard_front"
-                style="@style/myinfo_text_style" />
+                android:text="@string/idcard_front"/>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_marginLeft="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -92,195 +102,211 @@
                 android:layout_width="wrap_content"
                 android:layout_height="120dp"
                 android:layout_weight="1"
-                android:scaleType = "fitXY"
-                android:src="@mipmap/my_idcard_back" />
+                android:scaleType="fitXY"
+                android:src="@mipmap/my_idcard_back"/>
 
             <TextView
+                style="@style/myinfo_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="@string/idcard_back"
-                style="@style/myinfo_text_style" />
+                android:text="@string/idcard_back"/>
         </LinearLayout>
     </LinearLayout>
 
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:layout_marginTop="2dp"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:paddingLeft="10dp">
+
         <TextView
-            android:layout_gravity="center_vertical"
+            style="@style/myinfo_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/myinfo_text_style"
+            android:layout_gravity="center_vertical"
             android:text="@string/name"
             />
-        <LinearLayout
-            android:layout_gravity="center_vertical"
-            android:gravity="right"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/edit_name"
-            android:background="@null"
-            android:layout_marginRight="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/input_your_name"
-            style="@style/myinfo_text_style"
 
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="right">
+
+            <EditText
+                android:id="@+id/edit_name"
+                style="@style/myinfo_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@null"
+                android:hint="@string/input_your_name"
+
+                />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:layout_marginTop="2dp"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:paddingLeft="10dp">
+
         <TextView
-            android:layout_gravity="center_vertical"
+            style="@style/myinfo_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/myinfo_text_style"
+            android:layout_gravity="center_vertical"
             android:text="@string/idcard_num"
             />
+
         <LinearLayout
-            android:layout_gravity="center_vertical"
-            android:gravity="right"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="right">
+
             <EditText
                 android:id="@+id/edit_idcard"
-                android:layout_marginRight="10dp"
+                style="@style/myinfo_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:background="@null"
                 android:hint="@string/input_idcard"
-                style="@style/myinfo_text_style"
                 />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:layout_marginTop="2dp"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:paddingLeft="10dp">
+
         <TextView
-            android:layout_gravity="center_vertical"
+            style="@style/myinfo_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/myinfo_text_style"
+            android:layout_gravity="center_vertical"
             android:text="@string/address"
             />
+
         <LinearLayout
-            android:layout_gravity="center_vertical"
-            android:gravity="right"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="right">
+
             <EditText
                 android:id="@+id/edit_address"
-                android:layout_marginRight="10dp"
+                style="@style/myinfo_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:background="@null"
                 android:hint="@string/input_address"
-                style="@style/myinfo_text_style"
                 />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:layout_marginTop="2dp"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:paddingLeft="10dp">
+
         <TextView
-            android:layout_gravity="center_vertical"
+            style="@style/myinfo_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/myinfo_text_style"
+            android:layout_gravity="center_vertical"
             android:text="@string/phone"
             />
+
         <LinearLayout
-            android:layout_gravity="center_vertical"
-            android:gravity="right"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="right">
+
             <EditText
                 android:id="@+id/edit_phone"
-                android:layout_marginRight="10dp"
+                style="@style/myinfo_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:background="@null"
                 android:hint="@string/input_phone_num"
-                style="@style/myinfo_text_style"
                 />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:layout_marginTop="2dp"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:paddingLeft="10dp">
+
         <TextView
-            android:layout_gravity="center_vertical"
+            style="@style/myinfo_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/myinfo_text_style"
+            android:layout_gravity="center_vertical"
             android:text="@string/branch"
             />
+
         <LinearLayout
-            android:layout_gravity="center_vertical"
-            android:gravity="right"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="right">
+
             <TextView
 
-                android:layout_marginRight="10dp"
+                style="@style/myinfo_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/myinfo_text_style"
-                android:textColor="#969696"
+                android:layout_marginRight="10dp"
                 android:text="@string/branch_a"
+                android:textColor="#969696"
                 />
         </LinearLayout>
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape_button_myinfo"
-            android:text="@string/modify_phone"
-            android:textColor="#ffffff"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="74dp" />
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <Button
             android:layout_width="270dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="74dp"
             android:background="@drawable/shape_button_myinfo"
-            android:text="@string/reset_psw"
-            android:textColor="#ffffff"
+            android:text="@string/modify_phone"
+            android:textColor="#ffffff"/>
+
+        <Button
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
-             />
+            android:background="@drawable/shape_button_myinfo"
+            android:text="@string/reset_psw"
+            android:textColor="#ffffff"
+            />
     </RelativeLayout>
-
-
-
-
-
 
 
 </LinearLayout>

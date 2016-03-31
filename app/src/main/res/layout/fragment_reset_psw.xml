@@ -80,6 +80,7 @@
                 android:layout_height="45dp"
                 android:background="@null"
                 android:hint="@string/input_verify_code"
+                android:paddingLeft="@dimen/margin_10dp"
                 />
 
         </LinearLayout>

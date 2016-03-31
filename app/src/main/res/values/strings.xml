@@ -5,6 +5,7 @@
     <string name="ordering">待接单</string>
     <string name="order_disscuss">洽谈中</string>
     <string name="ordering_storagedetail">待入库</string>
+
     <!-- Toast String -->
     <string name="error_phone_num">手机号码不正确</string>
     <string name="user_not_exist">账号不存在</string>
@@ -12,6 +13,7 @@
     <string name="wrong_password">用户名密码不匹配</string>
     <string name="network_error">网络错误</string>
     <string name="server_error">服务器错误</string>
+
     <!-- LoginFragment -->
     <string name="login">登入</string>
     <string name="input_phone_num">请输入手机号</string>
@@ -59,5 +61,35 @@
     <!--RegisterFragment -->
     <string name="input_password_again">请再次输入密码</string>
 
+
+    <!--SendCarNotFragment -->
+    <string name="order_num">订单数</string>
+    <string name="volume">体积（方）</string>
+    <string name="weight">重量（吨）</string>
+    <string name="confirm">确定</string>
+    <string name="order_no">单号:</string>
+    <string name="order_no_manual">手工单号:</string>
+    <string name="sending_addr">接货地址:</string>
+    <string name="total_volume">体积：</string>
+    <string name="volume_measure">方</string>
+    <string name="total_wight">重量：</string>
+    <string name="wight_measure">吨</string>
+
+    <!--SendCarYesFragment -->
+    <string name="cancel_send_car">取消派车</string>
+
+
+    <!--SendCarListFragment -->
+    <string name="send_car">派车</string>
+    <string name="departure_time">出发时间</string>
+    <string name="current_weight">载重：</string>
+    <string name="receiving_fee">接货费（选填）</string>
+    <string name="delivery_fee">送货费（选填）</string>
+    <string name="yuan">元</string>
+    <string name="map">地图</string>
+
+
+    <!--SendCarMapFragment -->
+    <string name="send_car_live">派车实况</string>
 
 </resources>

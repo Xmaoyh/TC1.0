@@ -30,7 +30,7 @@ public class MyHomeFragment extends Fragment {
      */
     public static MyHomeFragment newInstance() {
         Bundle args = new Bundle();
-        MyHomeFragment fragment = new MyHomeFragment();
+        MyHomeFragment fragment = new  MyHomeFragment();
         fragment.setArguments(args);
         return fragment;
     }

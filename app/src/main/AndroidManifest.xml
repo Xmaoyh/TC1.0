@@ -46,6 +46,7 @@
         </activity>
         <activity android:name=".controllers.activity.RegisterActivity"/>
         <activity android:name=".controllers.activity.ResetPWActivity"/>
+        <activity android:name=".controllers.activity.PickupGoodsActivity"/>
     </application>
 
 </manifest>

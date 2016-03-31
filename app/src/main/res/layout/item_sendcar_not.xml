@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray"
+              android:orientation="vertical"
+    >
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#EEEEEE"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp">
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            style="@style/CustomCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            style="@style/myinfo_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/order_no"
+            />
+
+        <TextView
+            android:id="@+id/tv_order_no"
+            style="@style/myinfo_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="RSHZSH0128003"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:gravity="end">
+
+            <TextView
+                style="@style/myinfo_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_no_manual"
+                />
+
+            <TextView
+                android:id="@+id/tv_order_no_manual"
+                style="@style/myinfo_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="B01-20"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#EEEEEE"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingBottom="12dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/myinfo_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sending_addr"
+                android:textColor="#505050"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_sending_unit"
+                    style="@style/myinfo_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="西门子科技有限公司"
+                    android:textColor="#505050"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_sending_addr"
+                    style="@style/myinfo_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="北京西城区文一西路888号"
+                    android:textColor="#505050"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/myinfo_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_jiehuo"
+                android:text="@string/total_volume"
+                android:textColor="#969696"
+                />
+
+            <TextView
+                android:id="@+id/tv_total_volume"
+                style="@style/myinfo_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10.030"
+                android:textColor="#969696"
+                />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                style="@style/myinfo_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_jiehuo"
+                android:text="@string/volume_measure"
+                android:textColor="#969696"
+                />
+
+            <TextView
+                style="@style/myinfo_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:text="@string/total_wight"
+                android:textColor="#969696"/>
+
+            <TextView
+                android:id="@+id/tv_total_wight"
+                style="@style/myinfo_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10.030"
+                android:textColor="#969696"
+                />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                style="@style/myinfo_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_jiehuo"
+                android:text="@string/wight_measure"
+                android:textColor="#969696"
+                />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#EEEEEE"
+
+        />
+
+
+</LinearLayout>

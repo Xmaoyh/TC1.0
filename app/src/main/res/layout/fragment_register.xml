@@ -87,6 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:background="@null"
+                android:paddingLeft="@dimen/margin_10dp"
                 android:hint="@string/input_verify_code"
                 />
 

@@ -8,5 +8,14 @@
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="margin_20dp">20dp</dimen>
     <dimen name="margin_edit_image">20dp</dimen>
+    <!-- 按钮长度 -->
     <dimen name="edit_input_length">320dp</dimen>
+    <!-- APP头部长度 -->
+    <dimen name="top_length">50dp</dimen>
+    <!-- 派车列表筛选的字体大小 -->
+    <dimen name="condition_sel">16sp</dimen>
+    <!-- 派车列表主要信息字体大小 -->
+    <dimen name="send_car_list_main_text">20sp</dimen>
+    <!-- 派车列表详细信息字体大小 -->
+    <dimen name="send_car_list_detail_text">15sp</dimen>
 </resources>

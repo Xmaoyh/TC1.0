@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.example.tcwl_manage.R;
 import com.example.tcwl_manage.controllers.activity.OrderActivity;
+import com.example.tcwl_manage.controllers.activity.PickupGoodsActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -44,6 +45,8 @@ public class MissionFragment extends Fragment{
         MissionFragment fragment = new  MissionFragment();
         fragment.setArguments(args);
         return fragment;
+
+
     }
 
     @Override
@@ -66,6 +69,13 @@ public class MissionFragment extends Fragment{
 
         Intent intent = new Intent();
         intent.setClass(getActivity(), OrderActivity.class);
+        startActivity(intent);
+    }
+    @OnClick(R.id.iv_songhuo)
+    public void setmIvSonghuo(){
+
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), PickupGoodsActivity.class);
         startActivity(intent);
     }
 

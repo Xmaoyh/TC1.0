@@ -8,4 +8,11 @@
     <color name="gray">#F5F5F5</color>
     <color name="white">#ffffff</color>
     <color name="login_register">#c8e0fe</color>
+    <color name="red">#FD0002</color>
+    <color name="searchBackground">#e6e6e6</color>
+    <color name="searchTextColor">#b4b4b4</color>
+    <!--派车列表蓝色 -->
+    <color name="sendCarListBlue">#00beff</color>
+    <!--分割线灰色 -->
+    <color name="dividerColor">#E6E6E6</color>
 </resources>

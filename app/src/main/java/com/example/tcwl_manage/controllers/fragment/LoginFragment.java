@@ -39,10 +39,10 @@ import rx.schedulers.Schedulers;
  * 登入
  */
 public class LoginFragment extends Fragment {
-    private static  int CODE_SUCCESS = 50000;
-    private static  int CODE_USER_NOT_EXIST = 20207;
-    private static  int CODE_USER_DISABLE = 20208;
-    private static  int CODE_WRONG_PASSWORD = 60001;
+    private static int CODE_SUCCESS = 50000;
+    private static int CODE_USER_NOT_EXIST = 20207;
+    private static int CODE_USER_DISABLE = 20208;
+    private static int CODE_WRONG_PASSWORD = 60001;
 
 
     @Bind(R.id.edit_phoneNum)
@@ -65,6 +65,7 @@ public class LoginFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     private Activity getMyActivity() {
         Activity act = getActivity();
         if (act == null) {
@@ -88,7 +89,7 @@ public class LoginFragment extends Fragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick({ R.id.tv_forget_psw, R.id.tv_register, R.id.btn_login})
+    @OnClick({R.id.tv_forget_psw, R.id.tv_register, R.id.btn_login})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_forget_psw:
@@ -103,15 +104,16 @@ public class LoginFragment extends Fragment {
                 Intent intent3 = new Intent(getMyActivity(), MainActivity.class);
                 startActivity(intent3);
                 getMyActivity().finish();
-             //login();
+                //login();
         }
     }
 
+    //登入程序
     private void login() {
-        String  phoneNum  = mEditPhoneNum.getText().toString();
+        String phoneNum = mEditPhoneNum.getText().toString();
         String password = mEditPassword.getText().toString();
         //参数检查
-        if(TextUtils.isEmpty(phoneNum)) {
+        if (TextUtils.isEmpty(phoneNum)) {
             ToastUtil.toast(getMyActivity(), this.getResources().getString(R.string.input_phone_num));
             return;
         }
@@ -121,14 +123,14 @@ public class LoginFragment extends Fragment {
             ToastUtil.toast(getMyActivity(), this.getResources().getString(R.string.error_phone_num));
             return;
         }
-        if(TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(password)) {
             ToastUtil.toast(getMyActivity(), this.getResources().getString(R.string.input_password));
             return;
         }
         //请求api
         RetrofitUtil mRetrofitUtil = new RetrofitUtil();
-        ApiLoginService apiLoginService= mRetrofitUtil.create(ApiLoginService.class);
-        Observable<Login> observable = apiLoginService.getLogin("null",1,password,Long.valueOf(phoneNum));
+        ApiLoginService apiLoginService = mRetrofitUtil.create(ApiLoginService.class);
+        Observable<Login> observable = apiLoginService.getLogin("null", 1, password, Long.valueOf(phoneNum));
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Login>() {
@@ -139,37 +141,34 @@ public class LoginFragment extends Fragment {
 
                     @Override
                     public void onError(Throwable e) {
-                        ToastUtil.toast(getMyActivity(),getMyActivity().getResources().getString(R.string.network_error));
+                        ToastUtil.toast(getMyActivity(), getMyActivity().getResources().getString(R.string.network_error));
 
                     }
 
                     @Override
                     public void onNext(Login login) {
-                       int code = login.getCode();
-                        if(code == CODE_USER_NOT_EXIST) {
-                            ToastUtil.toast(getMyActivity(),getMyActivity().getResources().getString(R.string.user_not_exist));
+                        int code = login.getCode();
+                        if (code == CODE_USER_NOT_EXIST) {
+                            ToastUtil.toast(getMyActivity(), getMyActivity().getResources().getString(R.string.user_not_exist));
                             return;
                         }
-                        if(code == CODE_USER_DISABLE) {
-                            ToastUtil.toast(getMyActivity(),getMyActivity().getResources().getString(R.string.user_disable));
+                        if (code == CODE_USER_DISABLE) {
+                            ToastUtil.toast(getMyActivity(), getMyActivity().getResources().getString(R.string.user_disable));
                             return;
                         }
-                        if(code == CODE_WRONG_PASSWORD) {
-                            ToastUtil.toast(getMyActivity(),getMyActivity().getResources().getString(R.string.wrong_password));
+                        if (code == CODE_WRONG_PASSWORD) {
+                            ToastUtil.toast(getMyActivity(), getMyActivity().getResources().getString(R.string.wrong_password));
                             return;
                         }
-                        if(code == CODE_SUCCESS )
-                        {
+                        if (code == CODE_SUCCESS) {
                             Intent intent = new Intent(getMyActivity(), MainActivity.class);
                             startActivity(intent);
-                        }else{
-                            ToastUtil.toast(getMyActivity(),getMyActivity().getResources().getString(R.string.server_error));
+                        } else {
+                            ToastUtil.toast(getMyActivity(), getMyActivity().getResources().getString(R.string.server_error));
                             return;
                         }
                     }
                 });
-
-
 
 
     }
