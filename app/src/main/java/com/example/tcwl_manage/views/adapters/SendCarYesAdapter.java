@@ -49,7 +49,8 @@ public class SendCarYesAdapter extends RecyclerView.Adapter<SendCarYesAdapter.My
 
     @Override
     public int getItemCount() {
-        return mOrderLists.size();
+        //由于是网络加载的数据，要先判断是否为空
+        return mOrderLists == null ? 0 : mOrderLists.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

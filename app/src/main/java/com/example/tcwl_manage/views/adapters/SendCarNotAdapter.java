@@ -21,18 +21,24 @@ public class SendCarNotAdapter extends RecyclerView.Adapter<SendCarNotAdapter.My
     private LayoutInflater mLayoutInflater;
     private Context mContext;
     private List<OrderList> mOrderLists;
-    /**recyclerView点击事件*/
-    public interface OnItemClickListener{
+
+    /**
+     * recyclerView点击事件
+     */
+    public interface OnItemClickListener {
         /*item点击事件*/
-        void onDataClick( int position);
+        void onDataClick(int position);
+
         /*checkBox勾选事件*/
-        void onCheckBoxClick(double volume,double wight);
+        void onCheckBoxClick(double volume, double wight);
+
         /*checkBox未勾选事件*/
-        void onCheckBoxUnClick( double volume,double wight);
+        void onCheckBoxUnClick(double volume, double wight);
     }
+
     private OnItemClickListener mOnItemClickListener;
 
-    public SendCarNotAdapter( Context context,List<OrderList> orderLists ) {
+    public SendCarNotAdapter(Context context, List<OrderList> orderLists) {
         this.mContext = context;
         this.mOrderLists = orderLists;
         mLayoutInflater = LayoutInflater.from(context);
@@ -43,45 +49,46 @@ public class SendCarNotAdapter extends RecyclerView.Adapter<SendCarNotAdapter.My
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mLayoutInflater.inflate(R.layout.item_sendcar_not,parent, false);
-        MyViewHolder holder= new MyViewHolder(view);
+        View view = mLayoutInflater.inflate(R.layout.item_sendcar_not, parent, false);
+        MyViewHolder holder = new MyViewHolder(view);
         return holder;
     }
 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-            holder.order_no.setText(mOrderLists.get(position).getDateList().get(position).getOrderNo());
-            holder.order_no_manual.setText(mOrderLists.get(position).getDateList().get(position).getOrderNoManual());
-            holder.sending_addr.setText(mOrderLists.get(position).getDateList().get(position).getSendingAddr());
-            holder.sending_unit.setText(mOrderLists.get(position).getDateList().get(position).getSendingUnit());
-            holder.total_volume.setText(String.valueOf(mOrderLists.get(position).getDateList().get(position).getTotalVolume()));
-            holder.total_wight.setText(String.valueOf(mOrderLists.get(position).getDateList().get(position).getTotalWight()));
-            //设置点击事件
-            if(mOnItemClickListener != null) {
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mOnItemClickListener.onDataClick(position);
+        holder.order_no.setText(mOrderLists.get(position).getDateList().get(position).getOrderNo());
+        holder.order_no_manual.setText(mOrderLists.get(position).getDateList().get(position).getOrderNoManual());
+        holder.sending_addr.setText(mOrderLists.get(position).getDateList().get(position).getSendingAddr());
+        holder.sending_unit.setText(mOrderLists.get(position).getDateList().get(position).getSendingUnit());
+        holder.total_volume.setText(String.valueOf(mOrderLists.get(position).getDateList().get(position).getTotalVolume()));
+        holder.total_wight.setText(String.valueOf(mOrderLists.get(position).getDateList().get(position).getTotalWight()));
+        //设置点击事件
+        if (mOnItemClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnItemClickListener.onDataClick(position);
+                }
+            });
+            //checkBox点击事件
+            holder.mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    if (checked) {
+                        mOnItemClickListener.onCheckBoxClick(mOrderLists.get(position).getDateList().get(position).getTotalVolume(), mOrderLists.get(position).getDateList().get(position).getTotalWight());
+                    } else {
+                        mOnItemClickListener.onCheckBoxUnClick(mOrderLists.get(position).getDateList().get(position).getTotalVolume(), mOrderLists.get(position).getDateList().get(position).getTotalWight());
                     }
-                });
-                //checkBox点击事件
-                holder.mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                        if(checked){
-                            mOnItemClickListener.onCheckBoxClick(mOrderLists.get(position).getDateList().get(position).getTotalVolume(),mOrderLists.get(position).getDateList().get(position).getTotalWight());
-                        } else {
-                            mOnItemClickListener.onCheckBoxUnClick(mOrderLists.get(position).getDateList().get(position).getTotalVolume(),mOrderLists.get(position).getDateList().get(position).getTotalWight());
-                        }
-                    }
-                });
-            }
+                }
+            });
+        }
     }
 
     @Override
     public int getItemCount() {
-        return mOrderLists.size();
+        //由于是网络加载的数据，要先判断是否为空
+        return mOrderLists == null ? 0 : mOrderLists.size();
     }
 
     //设置Recyclerview 点击事件监听
