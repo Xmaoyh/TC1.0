@@ -1,10 +1,8 @@
 package com.example.tcwl_manage.controllers.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -64,13 +62,7 @@ public class PickupGoodsActivity extends AppCompatActivity {
                 //切换fragment
                 getSupportFragmentManager().beginTransaction().replace(R.id.fl_change, mFragments.get(position))
                         .commit();
-                if (position == 0) {
-                    mTvFunction.setVisibility(View.GONE);
-                }
-                if (position == 1) {
-                    mTvFunction.setVisibility(View.VISIBLE);
-                    mTvFunction.setText("派车");
-                }
+
 
             }
 
@@ -87,8 +79,5 @@ public class PickupGoodsActivity extends AppCompatActivity {
     public void onClick() {
         finish();
     }
-    @OnClick(R.id.tv_function)
-    public void onFunctionClick() {
-        startActivity(new Intent(this,MyInfoActivity.class));
-    }
+
 }

@@ -47,6 +47,8 @@
         <activity android:name=".controllers.activity.RegisterActivity"/>
         <activity android:name=".controllers.activity.ResetPWActivity"/>
         <activity android:name=".controllers.activity.PickupGoodsActivity"/>
+        <activity android:name=".controllers.activity.SendCarListActivity"/>
+        <activity android:name=".controllers.activity.BillingFirstActivity"/>
     </application>
 
 </manifest>

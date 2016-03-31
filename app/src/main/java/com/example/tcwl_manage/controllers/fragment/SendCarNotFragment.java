@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.tcwl_manage.R;
 import com.example.tcwl_manage.controllers.activity.MyInfoActivity;
+import com.example.tcwl_manage.controllers.activity.SendCarListActivity;
 import com.example.tcwl_manage.models.enties.OrderList;
 import com.example.tcwl_manage.models.services.ApiOrderListService;
 import com.example.tcwl_manage.utils.RetrofitUtil;
@@ -46,8 +47,10 @@ public class SendCarNotFragment extends Fragment {
     TextView mTvVolume;
     @Bind(R.id.tv_weight)
     TextView mTvWeight;
-    @Bind(R.id.btn_confirm)
-    Button mBtnConfirm;
+    @Bind(R.id.btn_send_car)
+    Button mBtnSendCar;
+
+
     /*订单信息*/
     private List<OrderList> mOrderLists = new ArrayList<>();
     /* 未派车列表的适配器*/
@@ -180,7 +183,9 @@ public class SendCarNotFragment extends Fragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick(R.id.btn_confirm)
+
+    @OnClick(R.id.btn_send_car)
     public void onClick() {
+        startActivity(new Intent(getMyActivity(), SendCarListActivity.class));
     }
 }

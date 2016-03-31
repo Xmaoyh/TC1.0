@@ -92,4 +92,20 @@
     <!--SendCarMapFragment -->
     <string name="send_car_live">派车实况</string>
 
+
+    <!--BillingFirstFragment -->
+    <string name="input_billing_num">手动填写单号（选填）</string>
+    <string name="addr">地址</string>
+    <string name="contact">联系人</string>
+    <string name="contact_phone">联系电话</string>
+    <string name="choose_company_send">选择发货公司</string>
+    <string name="need_pick">需要接货</string>
+    <string name="reserve_pick_time">预约接货时间</string>
+    <string name="choose_company_receive">选择收货公司</string>
+    <string name="need_delivery">需要送货</string>
+    <string name="receipt_method">回单方式</string>
+    <string name="start_station">起运站</string>
+    <string name="end_station">到达站</string>
+    <string name="next">下一步</string>
+
 </resources>

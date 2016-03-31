@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray"
+              android:orientation="vertical"
+              android:weightSum="1">
+
+    <include layout="@layout/common_top_back_title"/>
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:max="100"
+                android:progress="30"
+                android:progressDrawable="@drawable/progressbar_horizontal_triangle"
+                />
+
+            <EditText
+                android:id="@+id/edit_billing_num_manual"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/billing_item_height"
+                android:background="@color/white"
+                android:hint="@string/input_billing_num"
+                android:paddingLeft="@dimen/billing_padding_left"
+                android:textSize="@dimen/billing_text"
+                />
+
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:divider="@drawable/linearlayout_divider"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/billing_padding_left"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_choose_company_send"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/choose_company_send"
+                        android:textColor="@color/black_popwintext"
+                        android:textSize="@dimen/billing_text"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_choose_company_send_manual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/billing_padding_left"
+                        android:src="@mipmap/manual_input"
+                        />
+
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/edit_address_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:background="@null"
+                    android:hint="@string/addr"
+                    android:paddingLeft="@dimen/billing_padding_left"
+                    android:textSize="@dimen/billing_text"
+                    />
+
+                <EditText
+                    android:id="@+id/edit_contact_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:background="@null"
+                    android:hint="@string/contact"
+                    android:paddingLeft="@dimen/billing_padding_left"
+                    android:textSize="@dimen/billing_text"
+                    />
+
+                <EditText
+                    android:id="@+id/edit_phone_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:background="@null"
+                    android:hint="@string/contact_phone"
+                    android:inputType="phone"
+                    android:paddingLeft="@dimen/billing_padding_left"
+                    android:textSize="@dimen/billing_text"
+                    />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/billing_padding_left"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_time_pick"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/billing_checked"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/need_pick"
+                        android:textColor="@color/black_popwintext"
+                        android:textSize="@dimen/billing_text"
+                        />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="30dp"
+                        android:text="@string/reserve_pick_time"
+                        android:textColor="@color/black_popwintext"
+                        android:textSize="@dimen/billing_text"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_choose_time_pick"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/billing_padding_left"
+                        android:src="@mipmap/nextstep"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- 上面是发货信息 下面是收货信息 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="12dp"
+                android:divider="@drawable/linearlayout_divider"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/billing_padding_left"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_choose_company_receive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/choose_company_receive"
+                        android:textColor="@color/black_popwintext"
+                        android:textSize="@dimen/billing_text"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_choose_company_receive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/billing_padding_left"
+                        android:src="@mipmap/choose_mode"
+                        />
+
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/edit_address_receive"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:background="@null"
+                    android:hint="@string/addr"
+                    android:paddingLeft="@dimen/billing_padding_left"
+                    android:textSize="@dimen/billing_text"
+                    />
+
+                <EditText
+                    android:id="@+id/edit_contact_receive"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:background="@null"
+                    android:hint="@string/contact"
+                    android:paddingLeft="@dimen/billing_padding_left"
+                    android:textSize="@dimen/billing_text"
+                    />
+
+                <EditText
+                    android:id="@+id/edit_phone_receive"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:background="@null"
+                    android:hint="@string/contact_phone"
+                    android:inputType="phone"
+                    android:paddingLeft="@dimen/billing_padding_left"
+                    android:textSize="@dimen/billing_text"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/billing_padding_left"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_need_delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/billing_unchecked"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/need_delivery"
+                        android:textColor="@color/black_popwintext"
+                        android:textSize="@dimen/billing_text"
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <!--上面是收获信息 下面是一些细节-->
+
+            <!--回单方式-->
+            <RelativeLayout
+                android:background="@color/white"
+                android:id="@+id/rl_receipt_method"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/billing_item_height"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:paddingLeft="@dimen/billing_padding_left"
+                >
+
+                <TextView
+                    android:id="@+id/tv_receipt_method"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/receipt_method"
+                    android:textColor="@color/black_popwintext"
+                    android:textSize="@dimen/billing_text"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/billing_padding_left"
+                    android:src="@mipmap/nextstep"
+                    />
+
+            </RelativeLayout>
+            <!--起运站-->
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/billing_item_height"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:paddingLeft="@dimen/billing_padding_left"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_station"
+                    android:textColor="@color/black_popwintext"
+                    android:textSize="@dimen/billing_text"
+                    />
+
+                <EditText
+                    android:id="@+id/edit_start_station"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/billing_padding_left"
+                    />
+
+            </RelativeLayout>
+            <!--到达站-->
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/billing_item_height"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:paddingLeft="@dimen/billing_padding_left"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/end_station"
+                    android:textColor="@color/black_popwintext"
+                    android:textSize="@dimen/billing_text"
+                    />
+
+                <EditText
+                    android:id="@+id/edit_end_station"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/billing_padding_left"
+                    />
+
+            </RelativeLayout>
+            <!--下一步按钮 -->
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/shape_button_confilm"
+                android:text="@string/next"
+                android:textColor="@color/white"
+                android:textSize="@dimen/top_text_20sp"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

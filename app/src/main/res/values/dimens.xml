@@ -18,4 +18,10 @@
     <dimen name="send_car_list_main_text">20sp</dimen>
     <!-- 派车列表详细信息字体大小 -->
     <dimen name="send_car_list_detail_text">15sp</dimen>
+    <!-- 开单信息字体大小 -->
+    <dimen name="billing_text">15sp</dimen>
+    <!-- 开单信息单个高度 -->
+    <dimen name="billing_item_height">48sp</dimen>
+    <!-- 开单信息paddingLeft -->
+    <dimen name="billing_padding_left">12sp</dimen>
 </resources>
