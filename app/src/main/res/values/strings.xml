@@ -123,4 +123,15 @@
     <string name="confirm_add">确认添加</string>
     <string name="goods_add_already">已添加货物</string>
 
+    <!--BillingThirdFragment -->
+    <string name="payment_method">选择付款方式</string>
+    <string name="sum">金额</string>
+    <string name="payment_other">选择其他费用</string>
+    <string name="cod">代收货款</string>
+    <string name="account_name">开户名</string>
+    <string name="bank_account">银行账号</string>
+    <string name="loan">贷款</string>
+    <string name="save">保存</string>
+    <string name="confirm2">确认</string>
+
 </resources>

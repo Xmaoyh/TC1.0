@@ -87,6 +87,7 @@ public class SendCarNotAdapter extends RecyclerView.Adapter<SendCarNotAdapter.My
     public int getItemCount() {
         //由于是网络加载的数据，要先判断是否为空
         return mOrderLists == null ? 0 : mOrderLists.size();
+        //return mOrderLists.size();
     }
 
     //设置Recyclerview 点击事件监听

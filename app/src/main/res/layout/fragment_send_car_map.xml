@@ -4,41 +4,40 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/top_length"
-            android:background="@color/basic_background_color">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_length"
+        android:background="@color/basic_background_color">
 
-            <ImageView
-                android:id="@+id/imagev_turn_back"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_centerVertical="true"
-                android:paddingLeft="10dp"
-                android:src="@mipmap/back"/>
+        <ImageView
+            android:id="@+id/imagev_turn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:src="@mipmap/back"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="20dp"
-                android:text="@string/send_car_live"
-                android:textColor="@color/white"
-                android:textSize="@dimen/top_text_20sp"
-                />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/send_car_live"
+            android:textColor="@color/white"
+            android:textSize="@dimen/top_text_20sp"
+            />
 
 
-            <ImageView
-                android:id="@+id/iv_send_car_list"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:paddingRight="10dp"
-                android:src="@mipmap/list_mode"/>
+        <ImageView
+            android:id="@+id/iv_send_car_list"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:src="@mipmap/list_mode"/>
 
-        </RelativeLayout>
-
+    </RelativeLayout>
 
 
 

@@ -52,7 +52,7 @@ public class SendCarNotFragment extends Fragment {
 
 
     /*订单信息*/
-    private List<OrderList> mOrderLists = new ArrayList<>();
+    private List<OrderList> mOrderLists;
     /* 未派车列表的适配器*/
     private SendCarNotAdapter mSendCarNotAdapter;
     private int mOderNum = 0;
@@ -86,7 +86,7 @@ public class SendCarNotFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragement_sendcar_not, null);
+        View v = inflater.inflate(R.layout.fragement_sendcar_not, container, false);
         ButterKnife.bind(this, v);
         initView();
         return v;
@@ -117,8 +117,10 @@ public class SendCarNotFragment extends Fragment {
 
             }
         });
+        mOrderLists = new ArrayList<>();
         //设置适配器
         mSendCarNotAdapter = new SendCarNotAdapter(getMyActivity(), mOrderLists);
+
         mSendCarNotAdapter.setOnItemClickListener(new SendCarNotAdapter.OnItemClickListener() {
             @Override
             public void onDataClick(int position) {
