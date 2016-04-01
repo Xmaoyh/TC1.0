@@ -108,4 +108,19 @@
     <string name="end_station">到达站</string>
     <string name="next">下一步</string>
 
+
+    <!--BillingSecondFragment -->
+    <string name="goods_name">货物名称</string>
+    <string name="quantity">数量</string>
+    <string name="package_name">包装名称</string>
+    <string name="weight_prompt">重量（重量和体积至少填一项）</string>
+    <string name="volume_prompt">体积（重量和体积至少填一项）</string>
+    <string name="specification">规格</string>
+    <string name="need_insurance">需要货物保险</string>
+    <string name="goods_value">货值金额</string>
+    <string name="value_insurance">保费</string>
+    <string name="transport_fee">运费</string>
+    <string name="confirm_add">确认添加</string>
+    <string name="goods_add_already">已添加货物</string>
+
 </resources>

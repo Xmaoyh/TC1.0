@@ -42,8 +42,6 @@ public class SendCarNotAdapter extends RecyclerView.Adapter<SendCarNotAdapter.My
         this.mContext = context;
         this.mOrderLists = orderLists;
         mLayoutInflater = LayoutInflater.from(context);
-
-
     }
 
 

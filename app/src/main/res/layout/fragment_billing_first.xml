@@ -4,7 +4,7 @@
               android:layout_height="match_parent"
               android:background="@color/gray"
               android:orientation="vertical"
-              android:weightSum="1">
+    >
 
     <include layout="@layout/common_top_back_title"/>
 
@@ -36,15 +36,11 @@
                 android:paddingLeft="@dimen/billing_padding_left"
                 android:textSize="@dimen/billing_text"
                 />
-
+            <!-- 发货信息  -->
             <LinearLayout
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/BillingLayout"
                 android:layout_marginTop="12dp"
-                android:divider="@drawable/linearlayout_divider"
-                android:orientation="vertical"
-                android:showDividers="beginning|middle|end"
+
                 >
 
                 <RelativeLayout
@@ -115,12 +111,12 @@
 
                     >
 
-                    <ImageView
-                        android:id="@+id/iv_time_pick"
+                    <CheckBox
+                        android:id="@+id/checkbox_need_pick"
+                        style="@style/CustomCheckboxTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/billing_checked"
-                        />
+                        android:checked="true"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -158,13 +154,9 @@
             <!-- 上面是发货信息 下面是收货信息 -->
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
+                style="@style/BillingLayout"
                 android:layout_marginTop="12dp"
-                android:divider="@drawable/linearlayout_divider"
-                android:orientation="vertical"
-                android:showDividers="beginning|middle|end">
+                >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -233,12 +225,11 @@
 
                     >
 
-                    <ImageView
-                        android:id="@+id/iv_need_delivery"
+                    <CheckBox
+                        android:id="@+id/checkbox_need_delivery"
+                        style="@style/CustomCheckboxTheme"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/billing_unchecked"
-                        />
+                        android:layout_height="wrap_content"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -252,15 +243,14 @@
 
                 </LinearLayout>
             </LinearLayout>
-            <!--上面是收获信息 下面是一些细节-->
 
-            <!--回单方式-->
+            <!--楼上是收货信息，楼下是回单方式-->
             <RelativeLayout
-                android:background="@color/white"
                 android:id="@+id/rl_receipt_method"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/billing_item_height"
                 android:layout_marginTop="12dp"
+                android:background="@color/white"
                 android:gravity="center"
                 android:paddingLeft="@dimen/billing_padding_left"
                 >
@@ -283,12 +273,12 @@
                     />
 
             </RelativeLayout>
-            <!--起运站-->
+            <!--楼上是回单方式，楼下是起运站-->
             <RelativeLayout
-                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/billing_item_height"
                 android:layout_marginTop="12dp"
+                android:background="@color/white"
                 android:gravity="center"
                 android:paddingLeft="@dimen/billing_padding_left"
                 >
@@ -310,12 +300,12 @@
                     />
 
             </RelativeLayout>
-            <!--到达站-->
+            <!--楼上是起运站，楼下是到达站-->
             <RelativeLayout
-                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/billing_item_height"
                 android:layout_marginTop="12dp"
+                android:background="@color/white"
                 android:gravity="center"
                 android:paddingLeft="@dimen/billing_padding_left"
                 >
@@ -337,7 +327,7 @@
                     />
 
             </RelativeLayout>
-            <!--下一步按钮 -->
+            <!--楼上是到达站，楼下是下一步按钮 -->
             <Button
                 android:id="@+id/btn_next"
                 android:layout_width="match_parent"
@@ -348,6 +338,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/top_text_20sp"
                 />
+            <!--下一步按钮 -->
 
 
         </LinearLayout>

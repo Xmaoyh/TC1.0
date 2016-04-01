@@ -21,7 +21,7 @@
     <!-- 开单信息字体大小 -->
     <dimen name="billing_text">15sp</dimen>
     <!-- 开单信息单个高度 -->
-    <dimen name="billing_item_height">48sp</dimen>
+    <dimen name="billing_item_height">48dp</dimen>
     <!-- 开单信息paddingLeft -->
-    <dimen name="billing_padding_left">12sp</dimen>
+    <dimen name="billing_padding_left">12dp</dimen>
 </resources>

@@ -119,9 +119,6 @@ public class SendCarNotFragment extends Fragment {
         });
         //设置适配器
         mSendCarNotAdapter = new SendCarNotAdapter(getMyActivity(), mOrderLists);
-        mXRecycle.setAdapter(mSendCarNotAdapter);
-        //显示数据
-        initData();
         mSendCarNotAdapter.setOnItemClickListener(new SendCarNotAdapter.OnItemClickListener() {
             @Override
             public void onDataClick(int position) {
@@ -144,6 +141,9 @@ public class SendCarNotFragment extends Fragment {
 
 
         });
+        mXRecycle.setAdapter(mSendCarNotAdapter);
+        //显示数据
+        initData();
 
     }
 

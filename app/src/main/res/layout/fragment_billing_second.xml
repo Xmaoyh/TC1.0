@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray"
+              android:orientation="vertical">
+
+    <include layout="@layout/common_top_back_title"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:max="100"
+                android:progress="80"
+                android:progressDrawable="@drawable/progressbar_horizontal_triangle"
+                />
+            <!--货物规格信息 -->
+            <LinearLayout
+                style="@style/BillingLayout">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/billing_padding_left"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_goods_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/goods_name"
+                        android:textColor="@color/black_popwintext"
+                        android:textSize="@dimen/billing_text"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_goods_name_manual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/billing_padding_left"
+                        android:src="@mipmap/manual_input"
+                        />
+
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/edit_quantity"
+                    style="@style/BillingEditText"
+                    android:hint="@string/quantity"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/billing_padding_left"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_package_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/package_name"
+                        android:textColor="@color/black_popwintext"
+                        android:textSize="@dimen/billing_text"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_package_manual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/billing_padding_left"
+                        android:src="@mipmap/manual_input"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/billing_padding_left"
+
+                    >
+
+                    <EditText
+                        android:id="@+id/edit_weight"
+                        style="@style/BillingEditText"
+                        android:hint="@string/weight_prompt"
+                        android:paddingLeft="0dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/billing_padding_left"
+                        android:text="@string/wight_measure"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/billing_padding_left"
+
+                    >
+
+                    <EditText
+                        android:id="@+id/edit_volume"
+                        style="@style/BillingEditText"
+                        android:hint="@string/volume_prompt"
+                        android:paddingLeft="0dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/billing_padding_left"
+                        android:text="@string/volume_measure"
+                        />
+
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/edit_specification"
+                    style="@style/BillingEditText"
+                    android:hint="@string/specification"
+                    />
+                <!--上面是货物规格信息，下面是货物保险信息 -->
+                <LinearLayout
+                    style="@style/BillingLayout"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/billing_item_height"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/billing_padding_left"
+
+                        >
+
+                        <CheckBox
+                            android:id="@+id/checkbox_need_insurance"
+                            style="@style/CustomCheckboxTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/need_insurance"
+                            android:textColor="@color/black_popwintext"
+                            android:textSize="@dimen/billing_text"
+                            />
+
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/billing_item_height"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/billing_padding_left"
+
+                        >
+
+                        <EditText
+                            android:id="@+id/edit_value_goods"
+                            style="@style/BillingEditText"
+                            android:hint="@string/goods_value"
+                            android:paddingLeft="0dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/billing_padding_left"
+                            android:text="@string/yuan"
+                            />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/billing_item_height"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/billing_padding_left"
+
+                        >
+
+                        <EditText
+                            android:id="@+id/edit_value_insurance"
+                            style="@style/BillingEditText"
+                            android:hint="@string/value_insurance"
+                            android:paddingLeft="0dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/billing_padding_left"
+                            android:text="@string/yuan"
+                            />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <!-- 运费 -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/billing_item_height"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/billing_padding_left"
+                    >
+
+                    <EditText
+                        android:id="@+id/edit_transport_fee"
+                        style="@style/BillingEditText"
+                        android:hint="@string/transport_fee"
+                        android:paddingLeft="0dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/billing_padding_left"
+                        android:text="@string/yuan"
+                        />
+
+                </RelativeLayout>
+                <!-- 上面是运费，下面是确认添加 -->
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/shape_button_myinfo"
+                    android:text="@string/confirm_add"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/billing_text"
+                    />
+                <!-- 楼上是确认添加，楼下是已添加的货物 -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="@string/goods_add_already"
+                    />
+                <!--楼上是已添加的货物，楼下是下一步按钮 -->
+                <Button
+                    android:id="@+id/btn_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/shape_button_confilm"
+                    android:text="@string/next"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/top_text_20sp"
+                    />
+                <!--下一步按钮 -->
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
