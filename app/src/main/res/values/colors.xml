@@ -15,4 +15,7 @@
     <color name="sendCarListBlue">#00beff</color>
     <!--分割线灰色 -->
     <color name="dividerColor">#E6E6E6</color>
+    <!--订单信息灰色 -->
+    <color name="orderGray">#969696</color>
+
 </resources>

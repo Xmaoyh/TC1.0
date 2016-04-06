@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_layout_orderdisscuss"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <!--待洽谈中的item-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,19 +17,20 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginLeft="16.5dp"
+            android:src="@mipmap/date"
             android:layout_marginRight="16.5dp" />
 
         <TextView
             android:id="@+id/initDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16.5dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -36,20 +38,28 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
+            android:src="@mipmap/arrvingaddrs"
             android:layout_marginLeft="16.5dp"
             android:layout_marginRight="16.5dp" />
 
         <TextView
             android:id="@+id/sendingUnit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#505050"
+            android:layout_gravity="center_vertical"
+            android:textSize="12sp" />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/sendingAddr"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#505050"
+        android:layout_marginLeft="63dp"
+        android:layout_gravity="center_vertical"
+        android:textSize="12sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,13 +72,17 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
+            android:src="@mipmap/orderbnumber"
             android:layout_marginLeft="16.5dp"
             android:layout_marginRight="16.5dp" />
 
         <TextView
             android:id="@+id/orderNo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="#969696"
+            android:textSize="12sp" />
     </LinearLayout>
 
 </LinearLayout>

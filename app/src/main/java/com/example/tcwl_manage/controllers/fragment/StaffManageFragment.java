@@ -36,6 +36,7 @@ public class StaffManageFragment extends Fragment {
     private ArrayList<String> listData;
     private MyAdapter mAdapter;
     private View view;
+    private  ApiStaffService apiStaffService;
 
     public static StaffManageFragment newInstance(int userId) {
         Bundle args = new Bundle();
@@ -111,14 +112,15 @@ public class StaffManageFragment extends Fragment {
         for (int i = 0; i < 15; i++) {
             listData.add("item" + (i + listData.size()));
         }
+        RetrofitUtil retrofitUtil = new RetrofitUtil();
+        apiStaffService = retrofitUtil.create(ApiStaffService.class);
         mAdapter = new MyAdapter(listData);
         mRecyclerView.setAdapter(mAdapter);
 
     }
 
     private void stafflist() {
-        RetrofitUtil retrofitUtil = new RetrofitUtil();
-        ApiStaffService apiStaffService = retrofitUtil.create(ApiStaffService.class);
+
         apiStaffService.getStafflist(1)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

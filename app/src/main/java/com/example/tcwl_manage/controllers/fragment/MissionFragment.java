@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.example.tcwl_manage.R;
 import com.example.tcwl_manage.controllers.activity.BillingFirstActivity;
+import com.example.tcwl_manage.controllers.activity.LogisticsActivity;
 import com.example.tcwl_manage.controllers.activity.OrderActivity;
 import com.example.tcwl_manage.controllers.activity.PickupGoodsActivity;
 
@@ -84,6 +85,13 @@ public class MissionFragment extends Fragment{
 
         Intent intent = new Intent();
         intent.setClass(getActivity(), BillingFirstActivity.class);
+        startActivity(intent);
+    }
+    @OnClick(R.id.iv_wuliu)
+    public void setWuliu(){
+
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), LogisticsActivity.class);
         startActivity(intent);
     }
 

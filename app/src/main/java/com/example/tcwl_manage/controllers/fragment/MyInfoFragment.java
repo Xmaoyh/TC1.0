@@ -15,10 +15,13 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.tcwl_manage.R;
+import com.example.tcwl_manage.controllers.activity.ChangePhoneNumActivity;
+import com.example.tcwl_manage.controllers.activity.ResetPWActivity;
 import com.example.tcwl_manage.utils.GetCircleImage;
 import com.example.tcwl_manage.view.PopviewChoosePic;
 
@@ -53,6 +56,10 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
     ImageView mImagevTurnBack;
     @Bind(R.id.iv_my_icon)
     ImageView mIvMyIcon;
+    @Bind(R.id.btn_change_phone)
+    Button mBtnChangePhone;
+    @Bind(R.id.btn_change_psw)
+    Button mBtnChangePsw;
 
 
     /**
@@ -60,7 +67,7 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
      **/
     private String mCurrentPhotoStr;
     private Bitmap mPhotoImage;
-    private  BitmapFactory.Options options = new BitmapFactory.Options();
+    private BitmapFactory.Options options = new BitmapFactory.Options();
     private static final int TAKE_PHOTO_FRONT = 1;
     private static final int TAKE_PHOTO_BACK = 3;
     private static final int TAKE_PHOTO_ICON = 5;
@@ -71,6 +78,7 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
     private File outputImageFront = new File(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage1.jpg");
     private File outputImageBack = new File(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage2.jpg");
     private File outputImageIcon = new File(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg");
+
     /**
      * 需要传递参数时有利于解耦
      */
@@ -79,6 +87,13 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
         MyInfoFragment fragment = new MyInfoFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+    private Activity getMyActivity() {
+        Activity act = getActivity();
+        if (act == null) {
+            act = this.getActivity();
+        }
+        return act;
     }
 
 
@@ -101,7 +116,7 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
             mImagevBack.setImageBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImage2.jpg"));
         }
         if (outputImageIcon.exists()) {
-            mIvMyIcon.setImageBitmap( GetCircleImage.toRoundBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg",options)));
+            mIvMyIcon.setImageBitmap(GetCircleImage.toRoundBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg", options)));
         }
         return v;
 
@@ -293,7 +308,7 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
             // Bundle bundle = data.getExtras();
             //Bitmap bitmap = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
             Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Tangcan/tempImageIcon.jpg", options);
-            mIvMyIcon.setImageBitmap( GetCircleImage.toRoundBitmap(bitmap));        // 将图片显示在ImageView里
+            mIvMyIcon.setImageBitmap(GetCircleImage.toRoundBitmap(bitmap));        // 将图片显示在ImageView里
         }
 
         if (requestCode == GET_PHOTO_ICON && resultCode == Activity.RESULT_OK) {
@@ -337,7 +352,18 @@ public class MyInfoFragment extends Fragment implements View.OnClickListener {
 
     @OnClick(R.id.imagev_commit)
     public void commitClick() {
-     //todo 上传信息;
+        //todo 上传信息;
     }
 
+    @OnClick({R.id.btn_change_phone, R.id.btn_change_psw})
+    public void onBtnClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_change_phone:
+                startActivity(new Intent(getMyActivity(), ChangePhoneNumActivity.class));
+                break;
+            case R.id.btn_change_psw:
+                startActivity(new Intent(getMyActivity(),ResetPWActivity.class));
+                break;
+        }
+    }
 }

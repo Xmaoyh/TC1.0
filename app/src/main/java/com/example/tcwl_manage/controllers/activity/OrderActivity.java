@@ -81,5 +81,8 @@ public class OrderActivity extends FragmentActivity implements View.OnClickListe
         }
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

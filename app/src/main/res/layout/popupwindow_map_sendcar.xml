@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffff"
+              android:divider="@drawable/linear_layout_divider"
+              android:orientation="vertical"
+              android:showDividers="beginning"
+              android:paddingLeft="10dp"
+    >
+
+    <LinearLayout
+        android:divider="@drawable/linear_layout_divider"
+        android:showDividers="beginning|end"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_car_under_driver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="张司机"
+            android:textColor="@color/black_popwintext"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_car_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="[浙A JW529]"
+            android:textColor="@color/black_popwintext"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="15dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_driver_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公司司机"
+            android:textColor="@color/black_popwintext"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_driver_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="13523456789"
+            android:textColor="@color/black_popwintext"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send_to"
+            android:textColor="@color/black_popwintext"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="北京市朝阳区煎饼街111号"
+            android:textColor="@color/black_popwintext"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_volume"
+            android:textColor="@color/black_popwintext"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="剩余"
+            android:textColor="@color/black_popwintext"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="120"
+            android:textColor="#79C37A"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="方"
+            android:textColor="@color/black_popwintext"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:max="100"
+            android:paddingLeft="15dp"
+            android:progress="50"
+            android:progressDrawable="@drawable/progressbar_horizontal"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/current_weight"
+            android:textColor="@color/black_popwintext"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="剩余"
+            android:textColor="@color/black_popwintext"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30"
+            android:textColor="#79C37A"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="吨"
+            android:textColor="@color/black_popwintext"
+            android:textSize="@dimen/popwindowtext_15sp"
+            />
+
+        <ProgressBar
+
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:max="100"
+            android:paddingLeft="23dp"
+            android:progress="50"
+            android:progressDrawable="@drawable/progressbar_horizontal_2"
+            />
+
+    </LinearLayout>
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/btn_send_car"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/shape_button_myinfo"
+        android:text="@string/send_car"
+        android:textColor="@color/white"
+        android:textSize="@dimen/top_text_20sp"
+        />
+    <LinearLayout
+        android:divider="@drawable/linear_layout_divider"
+        android:showDividers="beginning"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_no_2"
+            android:textSize="16sp"
+            android:textColor="#323232"/>
+        <TextView
+            android:id="@+id/tv_order_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAHDGDGJIUQWEJQW"
+            android:textSize="16sp"
+            android:textColor="#323232"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/volume_remain"
+            android:textSize="16sp"
+            android:textColor="#323232"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textSize="16sp"
+            android:textColor="#ff7e00"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/volume_measure"
+            android:textSize="16sp"
+            android:textColor="#323232"/>
+
+        <TextView
+            android:layout_marginLeft="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weight_2"
+            android:textSize="16sp"
+            android:textColor="#323232"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textSize="16sp"
+            android:textColor="#ff7e00"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wight_measure"
+            android:textSize="16sp"
+            android:textColor="#323232"/>
+
+
+
+    </LinearLayout>
+</LinearLayout>

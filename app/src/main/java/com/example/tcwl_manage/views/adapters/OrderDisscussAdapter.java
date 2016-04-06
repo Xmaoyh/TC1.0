@@ -23,6 +23,11 @@ public class OrderDisscussAdapter extends RecyclerView.Adapter<OrderDisscussAdap
     private LayoutInflater mLayoutInflater;
     private List<Order> mOrderdata;
     private Activity activity;
+    private OnItemListener mOnItemListener;
+
+    public void setmOnItemListener(OnItemListener mOnItemListener) {
+        this.mOnItemListener = mOnItemListener;
+    }
 
     public OrderDisscussAdapter(List<Order> mOrderdata, Activity activity) {
         this.mOrderdata = mOrderdata;
@@ -37,42 +42,39 @@ public class OrderDisscussAdapter extends RecyclerView.Adapter<OrderDisscussAdap
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Glide.with(activity).load(R.mipmap.date).into(holder.item1_image1);
-        holder.initDate.setText(mOrderdata.get(position).getInitDate());
-        Glide.with(activity).load(R.mipmap.arrvingaddrs).into(holder.item1_image2);
-        holder.sendingUnit.setText(mOrderdata.get(position).getSendingUnit());
-        holder.sendingAddr.setText(mOrderdata.get(position).getSendingAddr());
-        Glide.with(activity).load(R.mipmap.orderbnumber).into(holder.item1_image3);
-        holder.orderNo.setText(mOrderdata.get(position).getOrderNo());
-
+        holder.initDate.setText(mOrderdata.get(position).getDateList().get(position).getInitDate());
+        holder.sendingUnit.setText(mOrderdata.get(position).getDateList().get(position).getSendingUnit());
+        holder.sendingAddr.setText(mOrderdata.get(position).getDateList().get(position).getSendingAddr());
+        holder.orderNo.setText(mOrderdata.get(position).getDateList().get(position).getOrderNo());
     }
 
     @Override
     public int getItemCount() {
-
         return mOrderdata == null ? 0 : mOrderdata.size();
     }
 
-    //item1 的ViewHolder
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView item1_image1;
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView initDate;
-        ImageView item1_image2;
         TextView sendingUnit;
         TextView sendingAddr;
-        ImageView item1_image3;
         TextView orderNo;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
-            item1_image1 = (ImageView) itemView.findViewById(R.id.item1_image1);
             initDate = (TextView) itemView.findViewById(R.id.initDate);
-            item1_image2 = (ImageView) itemView.findViewById(R.id.item1_image2);
             sendingUnit = (TextView) itemView.findViewById(R.id.sendingUnit);
             sendingAddr = (TextView) itemView.findViewById(R.id.sendingAddr);
-            item1_image3 = (ImageView) itemView.findViewById(R.id.item1_image3);
             orderNo = (TextView) itemView.findViewById(R.id.orderNo);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemListener.onItemClick(itemView,getLayoutPosition());
+                }
+            });
         }
     }
 
+    public  interface OnItemListener{
+        void onItemClick(View view, int position);
+    }
 }

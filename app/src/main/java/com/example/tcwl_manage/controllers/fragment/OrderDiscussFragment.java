@@ -1,15 +1,20 @@
 package com.example.tcwl_manage.controllers.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.tcwl_manage.R;
+import com.example.tcwl_manage.controllers.activity.OrderDiscussDetailActivity;
 import com.example.tcwl_manage.models.enties.Order;
-import com.example.tcwl_manage.models.services.ApiOrderdiscussService;
+import com.example.tcwl_manage.models.services.ApiOrderService;
 import com.example.tcwl_manage.utils.RetrofitUtil;
 import com.example.tcwl_manage.views.adapters.OrderDisscussAdapter;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
@@ -32,6 +37,7 @@ public class OrderDiscussFragment extends Fragment {
     private XRecyclerView mOrderDisscussrecycler;
     private OrderDisscussAdapter orderDisscussAdapter;
     private List<Order> orderData = new ArrayList<Order>();
+    private ApiOrderService apiOrderdiscussService;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,34 +71,59 @@ public class OrderDiscussFragment extends Fragment {
                 //加载更多
             }
         });
+        RetrofitUtil retrofitUtil = new RetrofitUtil();
+        apiOrderdiscussService = retrofitUtil.create(ApiOrderService.class);
         orderDisscussAdapter = new OrderDisscussAdapter(orderData, getActivity());
+        orderDisscussAdapter.setmOnItemListener(new OrderDisscussAdapter.OnItemListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                //这里查看详情
+                String  code = orderData.get(position - 1).getDateList().get(position-1).getCode();
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), OrderDiscussDetailActivity.class);
+                intent.putExtra("code",code);
+                startActivityForResult(intent, Activity.RESULT_OK);
+            }
+        });
         mOrderDisscussrecycler.setAdapter(orderDisscussAdapter);
+        initdata();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //requestCode标示请求的标示   resultCode表示有数据
+        if (requestCode == Activity.RESULT_OK && resultCode == Activity.RESULT_OK) {
+            initdata();
+        }
     }
 
     private void initdata() {
         ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
-        list.add(2);
-        list.add(3);
-        RetrofitUtil retrofitUtil = new RetrofitUtil();
-        ApiOrderdiscussService apiOrderdiscussService = retrofitUtil.create(ApiOrderdiscussService.class);
         apiOrderdiscussService.getOrderList(list)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Order>() {
                     @Override
                     public void onCompleted() {
-
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        try {
+                            Log.i("Log", e.getMessage());
+                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }catch (Throwable error){}
+
 
                     }
 
                     @Override
                     public void onNext(Order order) {
                         orderData.add(order);
+                        orderDisscussAdapter.notifyDataSetChanged();
                     }
                 });
     }

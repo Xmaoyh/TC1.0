@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 
 import com.example.tcwl_manage.R;
+import com.example.tcwl_manage.controllers.fragment.ManageFragment;
 import com.example.tcwl_manage.controllers.fragment.MissionFragment;
 import com.example.tcwl_manage.controllers.fragment.MyHomeFragment;
 import com.example.tcwl_manage.models.enties.TabEntity;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private void initData() {
 
         mFragments.add(MissionFragment.newInstance());
-        mFragments.add(MissionFragment.newInstance());
+        mFragments.add(ManageFragment.newInstance());
         mFragments.add(MyHomeFragment.newInstance());
 
 

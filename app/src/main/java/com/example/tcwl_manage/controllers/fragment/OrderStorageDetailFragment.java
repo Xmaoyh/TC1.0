@@ -15,6 +15,17 @@ import com.example.tcwl_manage.R;
 public class OrderStorageDetailFragment extends Fragment{
 
     private View view;
+    private static String codenumber;
+
+    public static OrderStorageDetailFragment newInstance(String code) {
+        Bundle args = new Bundle();
+        args.putString("CODE", code);
+        codenumber = code;
+        OrderStorageDetailFragment fragment = new OrderStorageDetailFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 

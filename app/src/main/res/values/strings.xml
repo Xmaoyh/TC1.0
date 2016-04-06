@@ -6,6 +6,31 @@
     <string name="order_disscuss">洽谈中</string>
     <string name="ordering_storagedetail">待入库</string>
 
+    <string name="ordering_storage_ok">确认入库</string>
+    <string name="ordering_detail">订单详情</string>
+    <string name="ordering_autocode">单号:</string>
+    <string name="ordering_code">手工单号:</string>
+    <string name="detail_sendingAddr">发货地址:</string>
+    <string name="detail_date">下单时间:</string>
+    <string name="detail_receivingAddr">收货地址:</string>
+    <string name="detail_payMethod">付款方式:</string>
+    <string name="totalTransportFee">运费</string>
+    <string name="totalStoringFee">进仓费</string>
+    <string name="totalPickingFee">接货费</string>
+    <string name="totalDeliveryFee">送货费</string>
+    <string name="totalInsuranceFee">保费</string>
+
+    <string name="totalFockFee">叉车费</string>
+    <string name="totalLoadingFee">装卸费</string>
+    <string name="totalOtherFee">其他费用</string>
+
+    <string name="totalFee">费用合计</string>
+    <string name="totalFee1">总计</string>
+    <string name="btn_save">保存</string>
+    <string name="btn_ok">确认</string>
+
+
+
     <!-- Toast String -->
     <string name="error_phone_num">手机号码不正确</string>
     <string name="user_not_exist">账号不存在</string>
@@ -91,6 +116,10 @@
 
     <!--SendCarMapFragment -->
     <string name="send_car_live">派车实况</string>
+    <string name="order_no_2">订单号：</string>
+    <string name="volume_remain">待配载体积:</string>
+    <string name="send_to">送至</string>
+    <string name="weight_2">重量：</string>
 
 
     <!--BillingFirstFragment -->
@@ -133,5 +162,24 @@
     <string name="loan">贷款</string>
     <string name="save">保存</string>
     <string name="confirm2">确认</string>
+
+
+    <!--LogisticsFragment -->
+    <string name="cancel">取消</string>
+    <string name="sending_unit">发货方：</string>
+    <string name="receiving_unit">收货方</string>
+    <string name="goods">货物：</string>
+    <string name="time">时间：</string>
+
+    <!--ManageFragment -->
+    <string name="manage">管理</string>
+    <string name="manage_employees">员工管理</string>
+    <string name="manage_car">车辆管理</string>
+    <string name="manage_driver">司机管理</string>
+    <string name="valuation_methods">计价方式</string>
+
+    <!--ChangePhoneNumFragment -->
+    <string name="confirm_modify">确认修改</string>
+    <string name="input_new_phone">请输入新手机号</string>
 
 </resources>

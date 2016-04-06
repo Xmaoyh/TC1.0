@@ -38,6 +38,8 @@ public class SendCarYesFragment extends Fragment {
     private List<OrderList> mOrderLists = new ArrayList<>();
     /* 已派车列表的适配器*/
     private SendCarYesAdapter mSendCarYesAdapter;
+    private  RetrofitUtil mRetrofitUtil ;
+
 
     /**
      * 需要传递参数时有利于解耦
@@ -67,6 +69,7 @@ public class SendCarYesFragment extends Fragment {
     }
 
     private void initView() {
+        mRetrofitUtil = new RetrofitUtil();
         LinearLayoutManager layoutManager = new LinearLayoutManager(getMyActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mXRecycle.setLayoutManager(layoutManager);
@@ -92,7 +95,7 @@ public class SendCarYesFragment extends Fragment {
             }
         });
         //设置适配器
-        mSendCarYesAdapter = new SendCarYesAdapter(getMyActivity(),mOrderLists);
+        mSendCarYesAdapter = new SendCarYesAdapter(getMyActivity(), mOrderLists);
         mXRecycle.setAdapter(mSendCarYesAdapter);
         //显示数据
         initData();
@@ -104,9 +107,8 @@ public class SendCarYesFragment extends Fragment {
         list.add(1);
 
         //请求api
-        RetrofitUtil mRetrofitUtil = new RetrofitUtil();
         ApiOrderListService apiOrderListService = mRetrofitUtil.create(ApiOrderListService.class);
-        Observable<OrderList> observable = apiOrderListService.getOrderList(0,list);
+        Observable<OrderList> observable = apiOrderListService.getOrderList(0, list);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<OrderList>() {
@@ -117,7 +119,10 @@ public class SendCarYesFragment extends Fragment {
 
                     @Override
                     public void onError(Throwable e) {
-                        ToastUtil.toast(getMyActivity(), getMyActivity().getResources().getString(R.string.network_error));
+                        //ToastUtil.toast(getMyActivity(), getMyActivity().getResources().getString(R.string.network_error));
+                        try {
+                            ToastUtil.toast(getMyActivity(), e.getMessage());
+                        }catch (Throwable error){}
                     }
 
                     @Override
@@ -126,6 +131,12 @@ public class SendCarYesFragment extends Fragment {
                         mSendCarYesAdapter.notifyDataSetChanged();
                     }
                 });
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
     }
 
     @Override

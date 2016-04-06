@@ -58,6 +58,7 @@ public class SendCarNotFragment extends Fragment {
     private int mOderNum = 0;
     private double mVolume = 0;
     private double mWight = 0;
+    private  RetrofitUtil mRetrofitUtil ;
 
 
     /**
@@ -93,6 +94,7 @@ public class SendCarNotFragment extends Fragment {
     }
 
     private void initView() {
+        mRetrofitUtil = new RetrofitUtil();
         LinearLayoutManager layoutManager = new LinearLayoutManager(getMyActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mXRecycle.setLayoutManager(layoutManager);
@@ -155,7 +157,6 @@ public class SendCarNotFragment extends Fragment {
         list.add(1);
 
         //请求api
-        RetrofitUtil mRetrofitUtil = new RetrofitUtil();
         ApiOrderListService apiOrderListService = mRetrofitUtil.create(ApiOrderListService.class);
         Observable<OrderList> observable = apiOrderListService.getOrderList(0, list);
         observable.subscribeOn(Schedulers.io())
@@ -168,7 +169,10 @@ public class SendCarNotFragment extends Fragment {
 
                     @Override
                     public void onError(Throwable e) {
-                        ToastUtil.toast(getMyActivity(), getMyActivity().getResources().getString(R.string.network_error));
+                        try {
+                            ToastUtil.toast(getMyActivity(), e.getMessage());
+                        }catch (Throwable error){}
+
                     }
 
                     @Override

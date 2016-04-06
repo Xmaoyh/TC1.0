@@ -16,16 +16,18 @@
 
     <application
         android:allowBackup="true"
+        android:name=".utils.MyApplication"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="wwNzu2QiLeuTSj2vlX2bNxAlSR9mDGtr" />
 
         <activity android:name=".controllers.activity.MainActivity">
-
-
         </activity>
 
         <activity android:name=".controllers.activity.StaffManageActivity"/>
@@ -48,6 +50,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".controllers.activity.OrderDiscussDetailActivity"/>
+        <activity android:name=".controllers.activity.OrderStorageDetailActivity"/>
+
         <activity android:name=".controllers.activity.RegisterActivity"/>
         <activity android:name=".controllers.activity.ResetPWActivity"/>
         <activity android:name=".controllers.activity.PickupGoodsActivity"/>
@@ -56,6 +62,12 @@
         <activity android:name=".controllers.activity.BillingSecondActivity"/>
         <activity android:name=".controllers.activity.BillingThirdActivity"/>
         <activity android:name=".controllers.activity.SendCarMapActivity"/>
+
+        <activity android:name=".controllers.activity.LogisticsActivity"/>
+        <activity android:name=".controllers.activity.ChangePhoneNumActivity"/>
+
+
+
     </application>
 
 </manifest>

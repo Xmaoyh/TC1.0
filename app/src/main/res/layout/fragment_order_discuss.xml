@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!--待洽谈中-->
     <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:id="@+id/order_discuss_recycler"
         android:layout_width="match_parent"

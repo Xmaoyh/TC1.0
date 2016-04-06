@@ -21,14 +21,7 @@ public class MyPopview extends PopupWindow{
     public MyPopview(Activity context ) {
         super(context);
        layoutInflater = LayoutInflater.from(context);
-        View v = layoutInflater.inflate(R.layout.popupwindow_map,null);
-        btn_peizai = (Button) v.findViewById(R.id.btn_peizai);
-        btn_peizai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dismiss();
-            }
-        });
+        View v = layoutInflater.inflate(R.layout.popupwindow_map_logistics,null);
 
         this.setContentView(v);
         //设置PopupWindow弹出窗体的宽
