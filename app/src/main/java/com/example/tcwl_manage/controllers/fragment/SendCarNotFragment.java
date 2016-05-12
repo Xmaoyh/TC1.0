@@ -1,4 +1,4 @@
-package com.example.tcwl_manage.controllers.fragment;
+﻿package com.example.tcwl_manage.controllers.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -98,7 +98,7 @@ public class SendCarNotFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getMyActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mXRecycle.setLayoutManager(layoutManager);
-        //设置下拉刷新样式
+        //设置下拉刷新样式测试
         mXRecycle.setRefreshProgressStyle(ProgressStyle.LineScale);
         //设置上拉加载样式
         mXRecycle.setLaodingMoreProgressStyle(ProgressStyle.BallGridPulse);
